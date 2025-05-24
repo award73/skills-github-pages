@@ -1,5 +1,77 @@
-theme: slate
-title: Andrew's Data and AI Blog
-author: Andrew Ward
-description: This is my blog for all things data and AI.
-theme: jekyll-theme-cayman
+# Basic Site Settings
+title: "Andrew's Data and AI Blog"
+name: "Andrew Ward"
+description: "This is my blog for all things data and AI."
+url: "https://award73.github.io"
+baseurl: "/skills-github-pages"
+repository: "award73/skills-github-pages"
+
+# Theme
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+
+# Appearance
+logo: "/assets/images/profile.jpg"  # Upload your profile image here
+masthead_title: "Data & AI with Andrew"
+minimal_mistakes_skin: "dark"       # dark mode theme
+locale: "en-US"
+
+# Author Info
+author:
+  name: "Andrew Ward"
+  avatar: "/assets/images/profile.jpg"
+  bio: "Senior Manager of Data Engineering | AI Enthusiast | Lifelong Learner"
+  location: "USA"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/award73"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://linkedin.com/in/andrewward4"
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:andrew@example.com"
+
+# Navigation
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "Blog"
+    url: "/year-archive/"
+  - title: "About"
+    url: "/about/"
+  - title: "Projects"
+    url: "/projects/"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-archives
+
+# Archive Pages
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+
+# Markdown processor
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false

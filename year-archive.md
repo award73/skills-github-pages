@@ -1,0 +1,5 @@
+---
+layout: year-archive
+title: "All Blog Posts"
+permalink: /year-archive/
+---

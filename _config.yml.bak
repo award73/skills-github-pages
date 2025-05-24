@@ -14,6 +14,9 @@ logo: "/assets/images/profile.jpg"  # Upload your profile image here
 masthead_title: "Data & AI with Andrew"
 minimal_mistakes_skin: "dark"       # dark mode theme
 locale: "en-US"
+header:
+  show_social_links: true
+
 
 # Author Info
 author:

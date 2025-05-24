@@ -85,3 +85,11 @@ featured:
   limit: 3
   posts:
     - /2025-05-24-introducing-andrew.md
+
+# Archive settings
+jekyll-archives:
+  enabled:
+    - year
+  layout: archive
+  permalinks:
+    year: '/posts/:year/'

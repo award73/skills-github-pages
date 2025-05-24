@@ -2,3 +2,4 @@ theme: slate
 title: Andrew's Data and AI Blog
 author: Andrew Ward
 description: This is my blog for all things data and AI.
+theme: jekyll-theme-cayman

@@ -22,7 +22,7 @@ header:
 author:
   name: "Andrew Ward"
   avatar: "/assets/images/profile.jpg"
-  bio: "Senior Manager of Data Engineering | AI Enthusiast | Lifelong Learner"
+  bio: "Data Engineering Leader | AI Enthusiast | Lifelong Learner"
   location: "USA"
   links:
     - label: "GitHub"
@@ -31,9 +31,6 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
       url: "https://linkedin.com/in/andrewward4"
-    - label: "Email"
-      icon: "fas fa-envelope"
-      url: "mailto:andrew@example.com"
 
 # Navigation
 nav:
@@ -84,4 +81,4 @@ featured:
   enabled: true
   limit: 3
   posts:
-    - /introducing-myself/
+    - /introducing-andrew/

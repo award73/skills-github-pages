@@ -18,7 +18,7 @@ feature_row:
     alt: "Introducing Myself"
     title: "Introducing Myself"
     excerpt: "Get to know my background, current work, and what I'm aiming to accomplish with this blog."
-    url: "/2025-05-24-introducing-andrew/"
+    url: "/introducing-myself/"
 
 ---
 

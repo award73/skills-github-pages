@@ -7,7 +7,7 @@ baseurl: "/skills-github-pages"
 repository: "award73/skills-github-pages"
 
 # Theme
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: "mmistakes/minimal-mistakes"
 
 # Appearance
 logo: "/assets/images/profile.jpg"  # Upload your profile image here

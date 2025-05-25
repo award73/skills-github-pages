@@ -58,7 +58,7 @@ plugins:
 collections:
   posts:
     output: true
-    permalink: /:categories/:title/
+    permalink: /:title/
 
 defaults:
   - scope:

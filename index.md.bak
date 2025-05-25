@@ -8,7 +8,7 @@ header:
   overlay_image: /assets/images/hero.jpg  # Replace with your uploaded image path
   actions:
     - label: "Read My Posts"
-      url: ""
+      url: "/year-archive/"
       class: "btn btn--primary"
 excerpt: "Exploring the edge of engineering leadership, data architecture, and AI-driven productivity."
 intro:
@@ -18,7 +18,7 @@ feature_row:
     alt: "Introducing Myself"
     title: "Introducing Myself"
     excerpt: "Get to know my background, current work, and what I'm aiming to accomplish with this blog."
-    url: "/2025-05-24-introducing-andrew"
+    url: "/2025-05-24-introducing-andrew/"
 
 ---
 

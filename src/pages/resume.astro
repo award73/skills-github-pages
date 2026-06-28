@@ -1,0 +1,67 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { certifications, education, experience, profile, skills } from "@data/profile";
+---
+
+<BaseLayout title="Resume" description="Online resume for technical leadership, data modernization, and AI enablement work.">
+  <section class="shell py-14">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="eyebrow">Resume</p>
+        <h1 class="mt-3 text-4xl font-semibold text-ink dark:text-white">{profile.name}</h1>
+        <p class="mt-3 max-w-3xl text-lg text-black/70 dark:text-white/70">{profile.title}</p>
+      </div>
+      <a class="button-secondary no-print" href="/Andrew-Ward-Resume.pdf">Download PDF</a>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="section-title">Experience</h2>
+      <div class="mt-6 grid gap-6">
+        {experience.map((item) => (
+          <article class="panel rounded-lg">
+            <div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <h3 class="text-2xl font-semibold">{item.role}</h3>
+              <p class="text-sm text-black/60 dark:text-white/60">{item.period}</p>
+            </div>
+            <p class="mt-1 font-medium text-pine dark:text-[#8fd6c8]">{item.organization}</p>
+            <p class="mt-4 text-black/70 dark:text-white/70">{item.summary}</p>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-black/70 dark:text-white/70">
+              {item.highlights.map((highlight) => <li>{highlight}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="section-title">Skills</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        {skills.map((group) => (
+          <article class="panel rounded-lg">
+            <h3 class="font-semibold">{group.group}</h3>
+            <p class="mt-3 text-sm leading-6 text-black/70 dark:text-white/70">{group.items.join(", ")}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="section-title">Certifications And Training</h2>
+      <ul class="mt-6 list-disc space-y-2 pl-5 text-black/70 dark:text-white/70">
+        {certifications.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="section-title">Education</h2>
+      <div class="mt-6 grid gap-4">
+        {education.map((item) => (
+          <article class="panel rounded-lg">
+            <h3 class="font-semibold">{item.school}</h3>
+            <p class="mt-2 text-sm text-black/70 dark:text-white/70">{item.credential}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </section>
+</BaseLayout>

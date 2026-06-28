@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#f8faf8] text-ink antialiased dark:bg-[#101615] dark:text-mist;
+  }
+
+  a {
+    @apply text-pine underline-offset-4 hover:underline dark:text-[#8fd6c8];
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-4 outline-signal;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.16em] text-signal;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold tracking-normal text-ink dark:text-white md:text-4xl;
+  }
+
+  .panel {
+    @apply border border-black/10 bg-white/[0.78] p-6 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/[0.04];
+  }
+
+  .button {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ink bg-ink px-4 py-2 text-sm font-semibold text-white no-underline transition hover:bg-pine hover:no-underline dark:border-mist dark:bg-mist dark:text-ink;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-black/15 bg-white px-4 py-2 text-sm font-semibold text-ink no-underline transition hover:border-pine hover:text-pine hover:no-underline dark:border-white/15 dark:bg-transparent dark:text-mist;
+  }
+
+  .tag {
+    @apply rounded-full border border-black/10 bg-mist px-3 py-1 text-xs font-medium text-ink dark:border-white/10 dark:bg-white/10 dark:text-mist;
+  }
+
+  .prose-site {
+    @apply max-w-none text-black/[0.74] dark:text-white/[0.74];
+  }
+
+  .prose-site > * + * {
+    @apply mt-5;
+  }
+
+  .prose-site h2 {
+    @apply mt-10 text-2xl font-semibold text-ink dark:text-white;
+  }
+
+  .prose-site ul {
+    @apply list-disc space-y-2 pl-5;
+  }
+
+  .prose-site p,
+  .prose-site li {
+    @apply leading-8;
+  }
+
+  .prose-site pre {
+    @apply overflow-x-auto rounded-lg border border-white/10 bg-ink p-4 text-sm text-white;
+  }
+
+  .prose-site code {
+    @apply rounded bg-black/5 px-1 py-0.5 text-sm dark:bg-white/10;
+  }
+}
+
+@media print {
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

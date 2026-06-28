@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { profile } from "@data/profile";
+---
+
+<BaseLayout title="About" description="Professional narrative and technical focus.">
+  <section class="shell py-16">
+    <p class="eyebrow">About</p>
+    <h1 class="mt-4 max-w-4xl text-4xl font-semibold text-ink dark:text-white md:text-5xl">{profile.title}</h1>
+    <div class="prose-site mt-8 text-lg leading-8">
+      <p>
+        I work at the intersection of enterprise data platforms, analytics modernization, and AI-ready operating models.
+        My work is about making data systems more scalable, governed, cost-aware, and useful to the teams that depend on
+        them.
+      </p>
+      <p>
+        Recent experience includes scaling Tier 1 data platforms, leading global data engineering teams, improving
+        reliability and delivery practices, reducing platform costs, and introducing practical AI enablement patterns
+        around Databricks and LLM-assisted workflows.
+      </p>
+      <p>
+        This site is a living technical portfolio: part resume, part writing archive, part project showcase, and now the
+        start of a curated library of resources worth returning to.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

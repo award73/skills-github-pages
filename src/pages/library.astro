@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { libraryLinks } from "@data/library";
+---
+
+<BaseLayout title="Library" description="A growing library of useful technical links and references.">
+  <section class="shell py-14">
+    <p class="eyebrow">Library</p>
+    <h1 class="mt-3 text-4xl font-semibold text-ink dark:text-white">Useful Links</h1>
+    <p class="mt-4 max-w-3xl text-lg text-black/70 dark:text-white/70">
+      A growing bookmark library for technical references, AI resources, modernization patterns, and tools worth
+      revisiting.
+    </p>
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {libraryLinks.map((item) => (
+        <article class="panel rounded-lg">
+          <p class="tag inline-flex">{item.category}</p>
+          <h2 class="mt-4 text-2xl font-semibold">
+            <a href={item.href} class="text-ink no-underline hover:text-pine dark:text-white">{item.title}</a>
+          </h2>
+          <p class="mt-3 text-black/70 dark:text-white/70">{item.description}</p>
+          <a href={item.href} class="mt-5 inline-flex text-sm font-semibold">Visit resource</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<BaseLayout title="Projects" description="Portfolio projects and case studies.">
+  <section class="shell py-14">
+    <p class="eyebrow">Portfolio</p>
+    <h1 class="mt-3 text-4xl font-semibold text-ink dark:text-white">Projects and Case Studies</h1>
+    <p class="mt-4 max-w-3xl text-lg text-black/70 dark:text-white/70">
+      Selected work across data modernization, AI enablement, automation, and engineering leadership.
+    </p>
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {projects.map((project) => <ProjectCard title={project.data.title} description={project.data.description} href={`/projects/${project.slug}`} technologies={project.data.technologies} placeholder={project.data.placeholder} />)}
+    </div>
+  </section>
+</BaseLayout>

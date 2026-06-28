@@ -1,57 +1,58 @@
-<header>
+# Personal Blog, Resume, and Portfolio
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+Static personal website built with Astro and Tailwind CSS for GitHub Pages.
 
-# GitHub Pages
+## Stack
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+- Astro
+- Tailwind CSS
+- Markdown content collections
+- GitHub Actions Pages deployment
 
-</header>
+## Local Development
 
-<!--
-  <<< Author notes: Finish >>>
-  Review what we learned, ask for feedback, provide next steps.
--->
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
 
-## Finish
+In this Codex workspace, `npm` was not on PATH, so validation may use the bundled pnpm runtime instead.
 
-_Congratulations friend, you've completed this course!_
+## Editing Content
 
-<img src=https://octodex.github.com/images/constructocat2.jpg alt=celebrate width=300 align=right>
+- Profile, socials, resume experience, skills, and certifications: `src/data/profile.ts`
+- Blog posts: `src/content/blog/*.md`
+- Portfolio projects: `src/content/projects/*.md`
+- Bookmark library links: `src/data/library.ts`
+- Shared layout and navigation: `src/layouts/BaseLayout.astro`
 
-Your blog is now live and has been deployed!
+## Adding A Blog Post
 
-Here's a recap of all the tasks you've accomplished in your repository:
+Create a Markdown file in `src/content/blog` with frontmatter:
 
-- You enabled GitHub Pages.
-- You selected a theme using the config file.
-- You learned about proper directory format and file naming conventions in Jekyll.
-- You created your first blog post with Jekyll!
-
-### What's next?
-
-- Keep working on your GitHub Pages site... we love seeing what you come up with!
-- We'd love to hear what you thought of this course [in our discussion board](https://github.com/skills/.github/discussions).
-- [Take another GitHub Skills course](https://github.com/skills).
-- [Read the GitHub Getting Started docs](https://docs.github.com/en/get-started).
-- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
-
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
-
+```md
 ---
+title: "Post title"
+description: "Short excerpt"
+pubDate: 2026-06-28
+tags: ["tag"]
+---
+```
 
-Get help: [Post in our discussion board](https://github.com/skills/.github/discussions) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+## Adding A Project
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+Create a Markdown file in `src/content/projects` with title, description, role, technologies, impact, category, and optional links. Keep `placeholder: true` until the entry contains real publishable details.
 
-</footer>
+## Adding A Library Link
+
+Add a new object to `src/data/library.ts` with a title, URL, description, and category.
+
+## Deployment
+
+The workflow in `.github/workflows/deploy.yml` builds the Astro site and deploys the static `dist` output to GitHub Pages. Configure the repository's Pages source to GitHub Actions.
+
+## Notes
+
+No previous site files were present in the local checkout, so starter content is intentionally conservative and placeholder-heavy. Replace placeholder claims before treating the site as a public resume.

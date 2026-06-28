@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PostListItem from "@components/PostListItem.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog" description="Technical writing, modernization notes, and project reflections.">
+  <section class="shell py-14">
+    <p class="eyebrow">Blog</p>
+    <h1 class="mt-3 text-4xl font-semibold text-ink dark:text-white">Technical Writing</h1>
+    <p class="mt-4 max-w-3xl text-lg text-black/70 dark:text-white/70">
+      Notes on AI-assisted engineering, data modernization, leadership, and practical delivery.
+    </p>
+    <div class="mt-8">
+      {posts.map((post) => <PostListItem title={post.data.title} description={post.data.description} href={`/blog/${post.slug}`} pubDate={post.data.pubDate} tags={post.data.tags} />)}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,9 +1,0 @@
-main:
-  - title: "Home"
-    url: /
-  - title: "Blog"
-    url: /year-archive/
-  - title: "About"
-    url: /about/
-  - title: "LinkedIn"
-    url: https://www.linkedin.com/in/andrewward4/

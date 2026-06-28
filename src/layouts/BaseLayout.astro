@@ -1,0 +1,60 @@
+---
+import "../styles.css";
+import { profile } from "@data/profile";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = profile.summary } = Astro.props;
+const pageTitle = title === profile.name ? title : `${title} | ${profile.name}`;
+const navItems = [
+  ["About", "/about"],
+  ["Blog", "/blog"],
+  ["Projects", "/projects"],
+  ["Library", "/library"],
+  ["Resume", "/resume"],
+  ["Contact", "#contact"],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="border-b border-black/10 bg-white/85 backdrop-blur dark:border-white/10 dark:bg-[#101615]/85">
+      <nav class="shell flex min-h-16 items-center justify-between gap-6" aria-label="Main navigation">
+        <a href="/" class="text-sm font-bold text-ink no-underline dark:text-white">{profile.name}</a>
+        <div class="flex flex-wrap justify-end gap-3 text-sm font-medium">
+          {navItems.map(([label, href]) => <a href={href} class="text-ink no-underline hover:text-pine dark:text-mist">{label}</a>)}
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer id="contact" class="mt-20 border-t border-black/10 py-10 dark:border-white/10">
+      <div class="shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-semibold">{profile.name}</p>
+          <p class="mt-1 max-w-2xl text-sm text-black/65 dark:text-white/65">{profile.summary}</p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <a href={profile.email}>Email</a>
+          {profile.socials.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a href="/rss.xml">RSS</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

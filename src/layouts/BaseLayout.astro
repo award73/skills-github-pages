@@ -1,6 +1,7 @@
 ---
 import "../styles.css";
 import { profile } from "@data/profile";
+import { sitePath } from "../utils/paths";
 
 interface Props {
   title: string;
@@ -10,11 +11,11 @@ interface Props {
 const { title, description = profile.summary } = Astro.props;
 const pageTitle = title === profile.name ? title : `${title} | ${profile.name}`;
 const navItems = [
-  ["About", "/about"],
-  ["Blog", "/blog"],
-  ["Projects", "/projects"],
-  ["Library", "/library"],
-  ["Resume", "/resume"],
+  ["About", sitePath("/about")],
+  ["Blog", sitePath("/blog")],
+  ["Projects", sitePath("/projects")],
+  ["Library", sitePath("/library")],
+  ["Resume", sitePath("/resume")],
   ["Contact", "#contact"],
 ];
 ---
@@ -28,13 +29,13 @@ const navItems = [
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="icon" href={sitePath("/favicon.svg")} />
     <title>{pageTitle}</title>
   </head>
   <body>
     <header class="border-b border-black/10 bg-white/85 backdrop-blur dark:border-white/10 dark:bg-[#101615]/85">
       <nav class="shell flex min-h-16 items-center justify-between gap-6" aria-label="Main navigation">
-        <a href="/" class="text-sm font-bold text-ink no-underline dark:text-white">{profile.name}</a>
+        <a href={sitePath("/")} class="text-sm font-bold text-ink no-underline dark:text-white">{profile.name}</a>
         <div class="flex flex-wrap justify-end gap-3 text-sm font-medium">
           {navItems.map(([label, href]) => <a href={href} class="text-ink no-underline hover:text-pine dark:text-mist">{label}</a>)}
         </div>
@@ -52,7 +53,7 @@ const navItems = [
         <div class="flex flex-wrap gap-3 text-sm">
           <a href={profile.email}>Email</a>
           {profile.socials.map((item) => <a href={item.href}>{item.label}</a>)}
-          <a href="/rss.xml">RSS</a>
+          <a href={sitePath("/rss.xml")}>RSS</a>
         </div>
       </div>
     </footer>

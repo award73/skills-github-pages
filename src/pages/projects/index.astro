@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import { getCollection } from "astro:content";
+import { sitePath } from "../../utils/paths";
 
 const projects = await getCollection("projects");
 ---
@@ -14,7 +15,7 @@ const projects = await getCollection("projects");
       Selected work across data modernization, AI enablement, automation, and engineering leadership.
     </p>
     <div class="mt-10 grid gap-5 md:grid-cols-2">
-      {projects.map((project) => <ProjectCard title={project.data.title} description={project.data.description} href={`/projects/${project.slug}`} technologies={project.data.technologies} placeholder={project.data.placeholder} />)}
+      {projects.map((project) => <ProjectCard title={project.data.title} description={project.data.description} href={sitePath(`/projects/${project.slug}`)} technologies={project.data.technologies} placeholder={project.data.placeholder} />)}
     </div>
   </section>
 </BaseLayout>

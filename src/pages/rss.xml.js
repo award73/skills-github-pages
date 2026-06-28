@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { profile } from "@data/profile";
+import { sitePath } from "../utils/paths";
 
 export async function GET(context) {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -13,7 +14,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/blog/${post.slug}/`,
+      link: sitePath(`/blog/${post.slug}/`),
     })),
   });
 }

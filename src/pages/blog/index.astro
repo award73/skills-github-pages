@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostListItem from "@components/PostListItem.astro";
 import { getCollection } from "astro:content";
+import { sitePath } from "../../utils/paths";
 
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -16,7 +17,7 @@ const posts = (await getCollection("blog"))
       Notes on AI-assisted engineering, data modernization, leadership, and practical delivery.
     </p>
     <div class="mt-8">
-      {posts.map((post) => <PostListItem title={post.data.title} description={post.data.description} href={`/blog/${post.slug}`} pubDate={post.data.pubDate} tags={post.data.tags} />)}
+      {posts.map((post) => <PostListItem title={post.data.title} description={post.data.description} href={sitePath(`/blog/${post.slug}`)} pubDate={post.data.pubDate} tags={post.data.tags} />)}
     </div>
   </section>
 </BaseLayout>

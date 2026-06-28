@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { sitePath } from "../utils/paths";
 ---
 
 <BaseLayout title="Page Not Found" description="The requested page could not be found.">
@@ -7,6 +8,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     <p class="eyebrow">404</p>
     <h1 class="mt-3 text-4xl font-semibold text-ink dark:text-white">Page not found</h1>
     <p class="mt-4 max-w-2xl text-lg text-black/70 dark:text-white/70">The page may have moved, or the link may need to be updated.</p>
-    <a href="/" class="button mt-8">Return home</a>
+    <a href={sitePath("/")} class="button mt-8">Return home</a>
   </section>
 </BaseLayout>
